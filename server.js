@@ -12,9 +12,6 @@ client.on("error", (e) => {
   fs.writeFile("claims.json", '{}', err => {
 
   })
-  fs.writeFile("logs.txt", e, err => {
-    if (err) console.error(err)
-  });
 });
 
 client.on('message', msg => {
