@@ -2,7 +2,6 @@ const config = require('./config.json');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require('fs');
-const teamLinks = JSON.parse(fs.readFileSync('./team-pages.json', 'utf8'));
 
 client.on('ready', () => {
   console.log(`Ready to serve in ${client.channels.size} channels on ${client.guilds.size} servers, for a total of ${client.users.size} users.`)
@@ -67,17 +66,6 @@ client.on('message', msg => {
         description: 'Team successfully claimed'
       }
     });
-    /**
-    msg.author.send({
-      "embed": {
-        "title": "Links for " + args.join(' ').toUpperCase(),
-        "description": "\n[Update Page](" + teamLinks[args.join(' ').toUpperCase()].updates + ")\n[Team Rosters](" + teamLinks[args.join(' ').toUpperCase()].players + ")",
-        "color": +teamLinks[args.join(' ').toUpperCase()].color,
-        "thumbnail": {
-          "url": teamLinks[args.join(' ').toUpperCase()].logo
-        }
-      }
-    });*/
   } else if (command === 'start') {
     //edit to
     if (msg.member.roles.some((i) => i.id === '450222629857787904') || msg.author.id === '188350850530410497') {
